@@ -1,1 +1,3 @@
-
+gedit name_of_file.c #creates a c file
+gcc -o name_of_file name_of_file.c #Reads the contents
+./name_of_file #Prints the output
