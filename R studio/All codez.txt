@@ -18,3 +18,49 @@ v)below 1000:
 
 below=pnorm(a,mean=Miu,sd=sigma)
 print(below*1000)
+
+Mean,median,mode,Standard deviation
+
+1.print(mean(a))
+2.print(median(a))
+
+Frequency table types;
+Calculate the mean and standard deviation for the following:
+Size : 6 7 8 9 10 11 12
+Frequency: 3 6 9 13 8 5 4
+R – Code:
+a=read.table(header=TRUE,text="Size Frequency
+6 3
+7 6
+8 9
+9 13
+10 8
+11 5
+12 4")
+b= rep(a$Size, a$Frequency)
+multi.fun = function(fr)
+{
+c(mean=mean(fr),sd=sd(fr))
+}
+multi.fun(b)
+
+3. mode:
+mode=function(x)
+{
+  ux=unique(x)
+  ux=[which.max(tabulate(match(x,ux))]
+}
+
+type of mode shit:
+Find the mean, median and mode for the following data.
+14.8, 14.2, 13.8, 13.5, 14.0, 14.2, 14.3, 14.6, 13.9, 14.0, 14.1, 13.2, 13.0, 14.2, 13.5, 13.0,
+12.8, 13.9, 14.8, 15.0, 12.8, 13.4, 13.2, 14.0, 13.8, 13.9, 14.0, 14.0, 13.9, 14.8
+R – Code:
+mode=function(x)
+{
+ux= unique(x)
+ux[which.max(tabulate(match(x,ux)))]
+}
+T7=c(14.8,14.2,13.8,13.5,14.0,14.2,14.3,14.6,13.9,14.0,14.1,13.2,13.0,14.2,13.5,13.0,12.8,13.9,14.8,
+15.0,12.8,13.4,13.2,14.0,13.8,13.9,14.0,14.0,13.9,14.8)
+c(mean=mean(T7),median=median(T7),mode=mode(T7))
