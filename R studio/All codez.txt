@@ -9,3 +9,12 @@ pnorm(a,mean=Miu,sd=sigma,lower.tail=FALSE)
 
 iii) Betwwen or comparisions:
 pnorm(b,mean=Miu,sd=sigma)-pnorm(a,mean=Miu,sd=sigma)
+
+iv) over 1000:
+over=pnorm(a,mean=Miu,sd=sigma)
+print(over*1000)
+
+v)below 1000:
+
+below=pnorm(a,mean=Miu,sd=sigma)
+print(below*1000)
