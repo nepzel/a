@@ -64,3 +64,42 @@ ux[which.max(tabulate(match(x,ux)))]
 T7=c(14.8,14.2,13.8,13.5,14.0,14.2,14.3,14.6,13.9,14.0,14.1,13.2,13.0,14.2,13.5,13.0,12.8,13.9,14.8,
 15.0,12.8,13.4,13.2,14.0,13.8,13.9,14.0,14.0,13.9,14.8)
 c(mean=mean(T7),median=median(T7),mode=mode(T7))
+
+-------
+chi square test:
+The following is the distribution of the hourly number of trucks arriving at a company’s 
+warehouse: 
+Trucks arriving hour 0 1 2 3 4 5 6 7 8 Total 
+Frequency 52 51 56 47 60 57 59 6157 500 
+Test whether the arrival of trucks is equally distributed at the 0.05 level of significance. 
+Null Hypothesis: The arrival of trucks is equally distributed at the 0.05 level of significance
+Alternative Hypothesis: The arrival of trucks is not equally distributed at the 0.05 level of 
+significance 
+
+Rcode:
+data<-c(52,51,56,47,60,57,59,61,57) #remember the c
+chisq.test(data)
+---
+Example (𝝌
+𝟐
+- test of Independence of Attributes) 
+A survey of 920 people that ask for their preference of one of three ice cream flavours 
+(chocolate, vanilla, strawberry) gives the following results: 
+Flavour 
+Gender 
+Chocolate Vanilla Strawberry Total 
+Men 100 120 60 280 
+Women 350 200 90 640 
+Total 450 320 150 920 
+Using 𝝌
+𝟐
+ test, determine whether or not there is an association between gender and 
+preference for ice cream flavour. 
+R-code 
+men = c(100, 120, 60) 
+women = c(350, 200, 90) 
+icecream = as.data.frame(rbind(men, women)) 
+chisq.test(icecream,simulate.p.value=T) 
+------
+
+
