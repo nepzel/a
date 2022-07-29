@@ -101,5 +101,63 @@ women = c(350, 200, 90)
 icecream = as.data.frame(rbind(men, women)) 
 chisq.test(icecream,simulate.p.value=T) 
 ------
-
+Anova type 1:
+A drug company tested three formulations of a pain relief medicine for migraine headac
+hesufferers. For the experiment 27 volunteers were selected and 9 were randomly assign
+ed to one of three drug formulations. The subjects were instructed to take the drug duri
+ng theirnext migraine headache episode and to report their pain on a scale of 1 to 10 (10 
+beingmaximum pain) 
+Drug A 4 5 4 3 2 4 3 4 4 
+Drug B 6 8 4 5 4 6 5 8 6 
+Drug C 6 7 6 6 7 5 6 5 5
+ 
+R-code: 
+pain=c(4,5,4,3,2,4,3,4,4,6,8,4,5,4,6,5,8,6,6,7,6,6,7,5,6,5,5) 
+drug=c(rep("A",9),rep("B",9),rep("C",9)) 
+data=data.frame(pain,drug) 
+data 
+results=aov(pain~drug,data=data) 
+summary(results) 
+----
+Anova 2way classification:
+The following data represents the number of units of loom crank bushes produced per day turned 
+out by different workers using four different types of machines.
+ Machine Type
+ A B C D
+1 44 38 47 36
+Workers 2 46 40 52 43
+3 34 36 44 32
+4 43 38 46 33
+5 38 42 49 39
+ Test whether the 5 men differ with respect to mean productivity and test whether the mean 
+ Productivity is the same for the four different machine types.
+R-code:
+a=c(44,46,34,43,38,38,40,36,38,42,47,52,44,46,49,36,43,32,33,39) 
+f=c("w1","w2","w3","w4","w5") 
+k=5 
+r=4 
+worker=gl(k,1,r*k,factor(f)) 
+worker 
+machine=gl(r,k,k*r) 
+machine 
+av = aov(a ~ worker+machine) 
+summary(av) 
+----
+Xbar and Rchart:
+S1=c(46,45,44,43,42) 
+S2=c(41,41,44,42,40) 
+S3=c(40,40,42,40,42) 
+S4=c(42,43,43,42,45) 
+S5=c(43,44,47,47,45) 
+A= as.data.frame(rbind(S1,S2,S3,S4,S5)) 
+Xbarchart= qcc(data = A, 
+               type = "xbar", 
+               sizes = 5, 
+               title = "X-bar Chart ", 
+               plot = TRUE) 
+rchart = qcc(data = A, 
+             type = "R", 
+             sizes = 5, 
+             title = "R Chart", 
+             plot = TRUE) 
 
