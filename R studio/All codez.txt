@@ -1,1 +1,11 @@
+Normal distribution
 
+i) lesser than:
+pnorm(a,mean=Miu,sd=sigma)
+
+ii) more than:
+
+pnorm(a,mean=Miu,sd=sigma,lower.tail=FALSE)
+
+iii) Betwwen or comparisions:
+pnorm(b,mean=Miu,sd=sigma)-pnorm(a,mean=Miu,sd=sigma)
