@@ -1,0 +1,31 @@
+# Filename: test7.tcl
+(gedit test7.tcl)
+to run:  ns test7.tcl
+remember: ***ns**
+
+#———— Routing Protocol —————#
+
+$ns rtproto DV
+
+#————–TCP CONNECTION BETWEEN NODES—————#
+$ns at 0.0 "Tranmission"
+proc Tranmission {} {
+global C ROU R ns
+
+set now [$ns now]
+set time 10.0
+set x 3
+set y 4
+
+set tcp1 [$ns create-connection TCP $C($x) TCPSink $R($y) 1]
+$ns at $now "$ns trace-annotate \"Time: $now Pkt Transfer between Client($x) Receiver($y)..\""
+$tcp1 set class_ 1
+$tcp1 set maxcwnd_ 16
+$tcp1 set packetsize_ 4000
+$tcp1 set fid_ 1
+set ftp1 [$tcp1 attach-app FTP]
+$ftp1 set interval_ .005
+$ns at $now "$ftp1 start"
+$ns at [expr $now+$time] "$ftp1 stop"
+
+}
