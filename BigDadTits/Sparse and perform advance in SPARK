@@ -1,0 +1,20 @@
+spark-shell
+----------------------
+1) Broadcast Hash Join:
+spark.conf.get("spark.sql.autoBroadcastJoinThreshold")
+------------------------------------------------------
+val data1=Seq(10,20,20,30,40,10,40,20,20,20,20,50)
+val df1=data1.toDF("id1")
+val data2=Seq(10,20,20,30)
+val df2=data1.toDF("id2")
+-----------------------------------------------------
+val dfjoined= df1.join(df2,$"id1"===$"id2")
+dfJoined.queryExecution.executedPlan
+dfJoined.show
+-----------------------------------------------------
+2)Shuffle Hash Join:
+spark.conf.get("spark.sql.autoBroadcastJoinThreshold",2)
+spark.conf.get("spark.sql.join.preferSortMergeJoin","false")
+spark.conf.get("spark.sql.join.preferSortMergeJoin")
+------------------------------------------------------------
+We are setting spark.sql.autoBroadcastJoinThreshold to -1 to disable broadcast
