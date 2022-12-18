@@ -1,17 +1,25 @@
+Create directory in hdfs at given path:
 hdfs dfs -mkdir /user/kct5thsemcdhid025/sample
 -----------------------------------------------
+List the controls of a directory:
 hdfs dfs -ls /
 ---------------
+Upload and download a file in HUpload:
 hdfs dfs -put '/home/kct5thsemcdhid025/input.txt''/user/kct5thsemcdhid025/sample'
 ---------------------------------------------------------------------------------
+Hadoop fs-get:
 hdfs dfs -get '/user/kct5thsemcdhid025/matrix/Input''/home/kct5thsemcdhid025/'
 ---------------------------------------------------------------------------------
+See contents in file:
 hdfs dfs -cat '/user/kct5thsemcdhid025/sample/*'
 ----------------------------------------------------------------------------
+COpy a file from source to destination:
 hdfs dfs -cp '/home/kct5thsemcdhid025/Input''/user/kct5thsemcdhid025/sample/'
 ----------------------------------------------------------------------------
+Copy a file from/Tolocal
 hdfs dfs -copyFromLocal '/home/kct5thsemcdhid025/Input''/user/kct5thsemcdhid025/sample/'
 -----------------------------------------------------------------------------------------
+Copy Tolocal:
 hdfs dfs -copyToLocal '/user/kct5thsemcdhid025/MATRIX/''/home/kct5thsemcdhid025/'
 ---------------------------------------------------------------------------------
 Remove a file:
