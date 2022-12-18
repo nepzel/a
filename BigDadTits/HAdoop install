@@ -1,20 +1,106 @@
+Step:
 sudo apt install
 ---------------
+Step:
 sudo apt update
 ---------------
+Step:
 sudo apt install openjdk-8-jdk -y
 ---------------------------------
+Step:
 javac -version
 ---------------
+Step:
 sudo apt install openssh-server openssh-client  -y
 --------------------------------------------------
+Step:
 sudo adduser hadoop
 password:"hadoop" or any easy ones
 ********hadoop aint working add some other name like hasoop,doop,anything new to the hadoop system**********
 ------------------------------------------------------------------------------------------------------------
+Step:
 sudo su-hadoop
 ******works rarely***
 --------------------------
+Step:
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 ^^^^^^^to overwrite if already created^^^^^^^^
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsassh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+--------------------------------------------------------------------------------
+Step:
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+----------
+Step:
+chmod 0600 ~/.ssh/authorized_keys
+------------
+Step:
+ssh localhost
+---------
+Step:
+wget https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop- 3.3.0/hadoop-
+3.3.0.tar.gz
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
+Step:
+----------
+Step:
+------------
+Step:
+---------
