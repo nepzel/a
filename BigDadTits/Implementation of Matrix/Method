@@ -52,3 +52,4 @@ hadoop jar /home/kct5thsemcdhi061/matrix/Matmul.jar Matmul /user/kct5thsemcdhi06
 -------------------------------------------------------------------------------------------------------------------------------------
 Output:
 hdfs dfs -cat /user/kct5thsemcdhi061/matrix/output/*
+________________________________xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx________________________________________________
