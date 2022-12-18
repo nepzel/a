@@ -1,0 +1,20 @@
+sudo apt install
+---------------
+sudo apt update
+---------------
+sudo apt install openjdk-8-jdk -y
+---------------------------------
+javac -version
+---------------
+sudo apt install openssh-server openssh-client  -y
+--------------------------------------------------
+sudo adduser hadoop
+password:"hadoop" or any easy ones
+********hadoop aint working add some other name like hasoop,doop,anything new to the hadoop system**********
+------------------------------------------------------------------------------------------------------------
+sudo su-hadoop
+******works rarely***
+--------------------------
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+^^^^^^^to overwrite if already created^^^^^^^^
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsassh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
