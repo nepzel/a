@@ -1,106 +1,120 @@
-Step:
+*****23 steps******
+Step:1
 sudo apt install
 ---------------
-Step:
+Step:2
 sudo apt update
 ---------------
-Step:
+Step:3
 sudo apt install openjdk-8-jdk -y
 ---------------------------------
-Step:
+Step:4
 javac -version
 ---------------
-Step:
+Step:5
 sudo apt install openssh-server openssh-client  -y
 --------------------------------------------------
-Step:
+Step:6
 sudo adduser hadoop
 password:"hadoop" or any easy ones
 ********hadoop aint working add some other name like hasoop,doop,anything new to the hadoop system**********
 ------------------------------------------------------------------------------------------------------------
-Step:
+Step:7
 sudo su-hadoop
 ******works rarely***
 --------------------------
-Step:
+Step:8
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 ^^^^^^^to overwrite if already created^^^^^^^^
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsassh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 --------------------------------------------------------------------------------
-Step:
+Step:9
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ----------
-Step:
+Step:10
 chmod 0600 ~/.ssh/authorized_keys
 ------------
-Step:
+Step:11
 ssh localhost
 ---------
-Step:
+Step:12
 wget https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop- 3.3.0/hadoop-
 3.3.0.tar.gz
+**PG 12 in pdf**
 ----------
-Step:
+Step:13
+tar xzf hadoop-3.3.0.tar.gz
 ------------
-Step:
+Step:14
+Modify ~/.bashrc file
+__
+command: sudo nano .bashrc
+ctrl+x..press "y" and "enter" to save the file.
+***go to the end and copy paste this shit*****
+export HADOOP_HOME=/home/usr/local/hadoop
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME export
+HADOOP_COMMON_HOME=$HADOOP_HOME export
+HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
+export HADOOP_OTPS="-Djava.library.path=HADOOP_HOME/lib/native"
 ---------
-Step:
+Step:15
+source ~/.bashrc
 ----------
-Step:
+Step:16
+sudo nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
+***at the end**
+exportJAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+***ext to coding***
+which javac
+readlink -f /usr/bin/javac
 ------------
-Step:
+Step:17
+sudo nano $HADOOP_HOME/etc/hadoop/core-site.xml
+***add***
+<configuration>
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/home/gokilanm/tmpdata</value>
+</property>
 ---------
-Step:
+Step:18
+sudo nano $HADOOP_HOME/etc/hadoop/core-site.xml
+sudo nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
+**add**
+<configuration>
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
 ----------
-Step:
+Step:19
+sudo nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
+***add***
+<property>
+<name>yarn.nodemanager.aux-services</name>
+<value>mapreduce_shuffle</value>
+</property>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+<name>yarn.resourcemanager.hostname</name>
+<value>127.0.0.1</value>
+</property>
+<property>
+<name>yarn.acl.enable</name>
+<value>0</value>
+</property>
+<property>
 ------------
-Step:
+Step:20
+hdfs namenode -format
 ---------
-Step:
+Step:21
 ----------
-Step:
+Step:22
 ------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
----------
-Step:
-----------
-Step:
-------------
-Step:
+Step:23
 ---------
