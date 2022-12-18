@@ -1,4 +1,4 @@
-*****23 steps******
+*****22 steps******
 Step:1
 sudo apt install
 ---------------
@@ -113,8 +113,14 @@ Step:20
 hdfs namenode -format
 ---------
 Step:21
+su -hadoop
+start-dfs.sh
+start-yarn.sh
+jps
 ----------
 Step:22
-------------
-Step:23
----------
+***from browser***
+http://localhost:9870
+http://localhost:9864
+http://localhost:8088
+-----------------------XXXXXXXXXXXXXX---------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----
