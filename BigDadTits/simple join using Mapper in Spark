@@ -1,0 +1,43 @@
+1)MOVE INTO THE SPARK SCALA
+spark-shell
+----------------------------
+1) INNER JOIN:
+Syntax:
+relation [ INNER ] JOIN relation [ join_criteria ]
+
+**scale>***
+val left = Seq((0, "zero"), (1, "one")).toDF("id", "left")
+**********************************************************
+val right = Seq((0, "zero"), (2, "two"), (3, "three")).toDF("id", "right")
+***************************************************************************
+left.join(right, "id").show
+left.join(right, "id").explain
+***************************************************************************
+FULL OUTER JOIN:
+left.join(right, Seq("id"), "fullouter").show
+left.join(right, Seq("id"), "fullouter").explain
+*************************************************
+3)LEFT ANTI-JOIN:
+left.join(right, Seq("id"), "leftanti").show
+left.join(right, Seq("id"), "leftanti").explain
+*************************************************
+BROADCAST JOIN:
+val threshold = spark.conf.get("spark.sql.autoBroadcastJoinThreshold").toInt
+threshold / 1024 /1024
+val q = spark.range(100).as("a").join(spark.range(100).as("b")).where($"a.id" ===$"b.id")
+println(q.queryExecution.logical.numberedTreeString)
+q.explain
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
+spark.conf.get("spark.sql.autoBroadcastJoinThreshold")
+q.explain
+val qBroadcast =spark.range(100).as("a").join(broadcast(spark.range(100)).as("b")).where($"a.id"=== $"b.id")
+qBroadcast.explain
+val qBroadcastLeft = """SELECT /*+ BROADCAST (lf) */ *FROM range(100) lf, range(1000) rt WHERE lf.id = rt.id"""
+sql(qBroadcastLeft).explain
+***************************************************************************************************************
+val qBroadcastRight = """ SELECT /*+MAPJOIN (rt) */ * FROM range(100) lf,range(1000) rt WHERE lf.id = rt.id"""
+sql(qBroadcastRight).explain
+**************************************************************************************************************
+Result:
+simple join using Mapper in Spark can be implemented.
+_____________________________________XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_________________________________________XXXXXXXXXXXXXXXXXXXXXXXXXXXXX______________
