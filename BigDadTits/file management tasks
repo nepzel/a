@@ -1,0 +1,24 @@
+hdfs dfs -mkdir /user/kct5thsemcdhid025/sample
+-----------------------------------------------
+hdfs dfs -ls /
+---------------
+hdfs dfs -put '/home/kct5thsemcdhid025/input.txt''/user/kct5thsemcdhid025/sample'
+---------------------------------------------------------------------------------
+hdfs dfs -get '/user/kct5thsemcdhid025/matrix/Input''/home/kct5thsemcdhid025/'
+---------------------------------------------------------------------------------
+hdfs dfs -cat '/user/kct5thsemcdhid025/sample/*'
+----------------------------------------------------------------------------
+hdfs dfs -cp '/home/kct5thsemcdhid025/Input''/user/kct5thsemcdhid025/sample/'
+----------------------------------------------------------------------------
+hdfs dfs -copyFromLocal '/home/kct5thsemcdhid025/Input''/user/kct5thsemcdhid025/sample/'
+-----------------------------------------------------------------------------------------
+hdfs dfs -copyToLocal '/user/kct5thsemcdhid025/MATRIX/''/home/kct5thsemcdhid025/'
+---------------------------------------------------------------------------------
+Remove a file:
+hdfs dfs -rm '/user/kct5thsemcdhid025/sample/input.txt'
+-------------------------------------------------------
+Display last few lines:
+hdfs dfs -tail '/user/kct5thsemcdhid025/sample/Input/Input.txt'
+---------------------------------------------------------------
+Display the aggregate length of a file:
+hdfs dfs -du '/user/kct5thsemcdhid025/sample/Input/Input.txt'
