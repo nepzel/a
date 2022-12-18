@@ -1,0 +1,54 @@
+MATRIX MULTIPLICATION:
+1)LOGIN WITH THE USERNAME AND PASSWORD
+
+CREATE A FOLDER "matrix"
+
+INSIDE THE MATRIX FOLDER UPLOAD THE INPUT FILE AND JAVA FILE
+
+CAN UPLOAD/EDIT/DELETE THE FILES BY USING THESE OPTIONS:
+
+UPLOAD THE INPUT FILE:
+
+UPLOAD THE JAVA FILE:
+
+CREATE A CLASS FOLDER:
+
+CHECK THE CLASSES FOLDER:
+IN WEB SHELL GO TO THE MATRIX FOLDER:
+
+cd Matrix
+export HADOOP_CLASSPATH=$(hadoop classpath)
+echo $HADOOP_CLASSPATH
+--------------------------
+COMPILE THE JAVA FILE:
+
+javac -classpath ${HADOOP_CLASSPATH} -d '/home/kct5thsemcdhi061/ matrix /classes' '/home/home/kct5thsemcdhi061/ matrix /Matrix.java'
+--------------------------------------------------------------------------------------------------------------------------------------------
+CHECK THE CLASSES FOLDER:
+IN WEB SHELL GO TO THE MATRIX FOLDER:
+
+SET THE PATH FOR JAVA FILE:
+
+COMPILE THE JAVA FILE
+
+javac -classpath ${HADOOP_CLASSPATH} -d ‘/home/kct5thsemcdhi061/ matrix /classes’ ‘/home/kct5thsemcdhi061/ matrix /Matrix.java’
+
+CREATE A JAR FILE:
+jar -cvf TwoStepMatrixMultiplication.jar -C ‘/home/<NAME>/matrix /classes’/ .
+------------------------------------------------------------------------------
+CREATE A DIRECTORY IN HDFS:
+hdfs dfs -mkdir /user/kct5thsemcdhi061/matrix
+hdfs dfs -mkdir /user/kct5thsemcdhi061/matrix/input
+hdfs dfs -mkdir /user/kct5thsemcdhi061/matrix/output
+-----------------------------------------------------
+PUT THE INPUT TEXT FILE INSIDE THE INPUT FOLDER:
+hdfs dfs -put '/home/kct5thsemcdhi061/matrix/input.txt '/user/kct5thsemcdhi061/matrix/input/'
+-------------------------------------------------------------------------------------------------
+CHECK THE INPUT FILE:
+hdfs dfs -cat /user/kct5thsemcdhi061/matrix/input/*
+---------------------------------------------------------
+finale:
+hadoop jar /home/kct5thsemcdhi061/matrix/Matmul.jar Matmul /user/kct5thsemcdhi061/Matrix/input /user/kct5thsemcdhi061/matrix/output
+-------------------------------------------------------------------------------------------------------------------------------------
+Output:
+hdfs dfs -cat /user/kct5thsemcdhi061/matrix/output/*
