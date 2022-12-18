@@ -1,0 +1,17 @@
+Create a folder weather
+---------------------------
+cd weather
+export HADOOP_CLASSPATH=$(hadoop classpath)
+echo $HADOOP_CLASSPATH
+------------------------------------------------
+jar -cvf minmaxtemp.jar -C '/home/kct5thsemcdhi061/weather/classes'/.
+----------------------------------------------------------------------
+hdf sdfs -ls /user/kct5thsemcdhi061/weather
+------------------------------------------------
+hdfs dfs -put '/home/kct5thsemcdhi061/weather/input.txt '/user/kct5thsemcdhi061/weather/input'
+-----------------------------------------------------------------------------------------------
+hadoop jar /home/kct5thsemcdhi061/weather/minmaxtemp.jar minmaxtemp.jar /user/kct5thsemcdhi061/weather/input /user/kct5thsemcdhi061/weather/output
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Output:
+hdfs dfs -cat /user/kct5thsemcdhi061/weather/output/*
+_______________________________XxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXX_______________________
