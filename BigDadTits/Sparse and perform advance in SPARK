@@ -1,4 +1,5 @@
 spark-shell
+**********df1,df2,data1,data2 do change if runnning all things in one page.....
 ----------------------
 1) Broadcast Hash Join:
 spark.conf.get("spark.sql.autoBroadcastJoinThreshold")
@@ -18,3 +19,31 @@ spark.conf.get("spark.sql.join.preferSortMergeJoin","false")
 spark.conf.get("spark.sql.join.preferSortMergeJoin")
 ------------------------------------------------------------
 We are setting spark.sql.autoBroadcastJoinThreshold to -1 to disable broadcast
+
+spark.conf.get("spark.sql.join.preferSortMergeJoin")
+spark.conf.get("spark.sql.autoBroadcastJoinThreshold")
+val data1 = Seq(10, 20, 20, 30, 40, 10, 40, 20, 20, 20, 20, 50)
+Seq[Int] = List(10, 20, 20, 30, 40, 10, 40, 20, 20, 20, 20, 50)
+val df1 = data1.toDF("id1")
+val df2 = data2.toDF("id2")
+dfJoined.queryExecution.executedPlan
+dfJoined.show
+--------------------------------------------------------------
+val dfJoined = df1.join(df2, $"id1" >= $"id2")
+dfJoined.queryExecution.executedPlan
+dfJoined.show
+val df1 = data1.toDF("id1")
+val data2=Seq(10,20,40,50)
+val df2 = data2.toDF("id2")
+dfjoined.show
+----------------------------------------------
+3) CARTESIAN PRODUCT JOIN:
+spark.conf.get("spark.sql.join.preferSortMergeJoin")
+spark.conf.get("spark.sql.autoBroadcastJoinThreshold")
+val data1=Seq(10,20,20,30,40,10,40,20,20,20,20,50)
+val df1 = data1.toDF("id1")
+val data2=Seq(30,20,40,50)
+val df2 = data2.toDF("id2")
+dfJoined.queryExecution.executedPlan
+dfJoined.show
+____________________________XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX____________________________________XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
