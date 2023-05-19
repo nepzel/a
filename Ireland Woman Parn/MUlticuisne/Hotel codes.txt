@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi Cuisine Restaurant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    .menu {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 20px;
+    }
+    .table-container {
+      margin-top: 50px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input[type="text"], .form-group textarea {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    .form-group button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multi Cuisine Restaurant</h1>
+  <div class="menu">
+    <a href="outlets.html">OUTLETS</a>
+    <a href="order.html">ORDER ONLINE</a>
+  </div>
+
+  <!-- outlets.html -->
+  <div class="table-container">
+    <h2>Outlets</h2>
+    <table>
+      <tr>
+        <th>Location</th>
+        <th>Address</th>
+        <th>Contact</th>
+      </tr>
+      <tr>
+        <td>Outlet 1</td>
+        <td>Address 1</td>
+        <td>Contact 1</td>
+      </tr>
+      <tr>
+        <td>Outlet 2</td>
+        <td>Address 2</td>
+        <td>Contact 2</td>
+      </tr>
+      <!-- Add more outlets as needed -->
+    </table>
+  </div>
+
+  <!-- order.html -->
+  <div class="form-container">
+    <h2>Order Online</h2>
+    <form action="process-order.php" method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
