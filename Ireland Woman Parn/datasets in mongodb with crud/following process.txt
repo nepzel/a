@@ -1,1 +1,102 @@
+Certainly! Here's a step-by-step guide to setting up and running the Node.js script in Visual Studio Code:
 
+Step 1: Set Up the Project
+
+1. Open Visual Studio Code.
+
+2. Create a new folder for your project and open it in Visual Studio Code.
+
+3. Open the integrated terminal in Visual Studio Code by selecting View → Terminal or using the Ctrl+` (backtick) shortcut.
+
+4. Initialize a new Node.js project by running the following command in the terminal:
+   ```
+   npm init -y
+   ```
+
+5. Install the required dependencies by running the following command:
+   ```
+   npm install mongodb
+   ```
+
+Step 2: Create the Node.js Script
+
+1. In Visual Studio Code, create a new JavaScript file named `app.js` and open it.
+
+2. Copy the following code and paste it into `app.js`:
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb://localhost:27017';  // Replace with your MongoDB connection string
+const dbName = 'mydatabase';  // Replace with your database name
+const collectionName = 'persons';  // Replace with your collection name
+
+// Connect to MongoDB
+MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
+  if (err) {
+    console.error('Failed to connect to the database:', err);
+    return;
+  }
+
+  const db = client.db(dbName);
+  const collection = db.collection(collectionName);
+
+  // Create a person
+  const newPerson = { name: 'John Doe', age: 25, email: 'johndoe@example.com', city: 'New York' };
+  collection.insertOne(newPerson, (err, result) => {
+    if (err) {
+      console.error('Failed to create person:', err);
+      return;
+    }
+    console.log('Person created successfully:', result.ops);
+
+    // Read all persons
+    collection.find().toArray((err, persons) => {
+      if (err) {
+        console.error('Failed to fetch persons:', err);
+        return;
+      }
+      console.log('All persons:', persons);
+
+      // Update a person
+      const updateQuery = { name: 'John Doe' };
+      const updateData = { $set: { city: 'Los Angeles' } };
+      collection.updateOne(updateQuery, updateData, (err, result) => {
+        if (err) {
+          console.error('Failed to update person:', err);
+          return;
+        }
+        console.log('Person updated successfully:', result.modifiedCount);
+
+        // Delete a person
+        const deleteQuery = { name: 'John Doe' };
+        collection.deleteOne(deleteQuery, (err, result) => {
+          if (err) {
+            console.error('Failed to delete person:', err);
+            return;
+          }
+          console.log('Person deleted successfully:', result.deletedCount);
+
+          // Close the MongoDB connection
+          client.close();
+        });
+      });
+    });
+  });
+});
+```
+
+3. Replace `'mongodb://localhost:27017'` with the connection string of your MongoDB database.
+
+Step 3: Run the Script
+
+1. In Visual Studio Code, open the integrated terminal if it's not already open.
+
+2. Run the script by entering the following command in the terminal:
+   ```
+   node app.js
+   ```
+
+3. The script will connect to your MongoDB database, perform the CRUD operations, and display the results in the terminal.
+
+That's it! You have successfully connected to your MongoDB database from Visual Studio Code and performed CRUD operations using Node.js.
