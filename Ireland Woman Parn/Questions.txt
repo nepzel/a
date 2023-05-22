@@ -1,0 +1,85 @@
+1.a) Create a website for a multi cuisine restaurant which contains four different menus (OUTLETS and ORDER ONLINE) at its home page. The OUTLETS menu, on clicking, should redirect the customer to another page which contains a list of outlets available in a table format. The ORDER ONLINE menu should contain a link which redirects the user to the orders page in which an enquiry form should be there with necessary information to take up online orders. Use appropriate HTML tags and apply INTERNAL CSS for any two tags. 
+
+b) Create Person datasets (contains name, age, email, and city) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script, and perform CRUD(Create,Read,Update,Delete) operations. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.a) Create a website for booking taxi online in which the user needs to enter the following details 
+
+i)Trip Type (either One-way trip or Round trip) 
+
+ii)Select Origin location and Destination location from the list  
+
+iii)Select Date and Time. 
+
+iv)Enter phone number 
+
+v)Below this there should be some few links (About Us, Contact Us, Offers, etc) which redirects the user to the concern page. Use appropriate HTML tags and perform any two validation using Javascript. 
+
+b)  Using Student datasets (contains name, age, email and city) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and perform CRUD(Create,Read,Update,Delete) operations. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.a) Create a Website for a Multispecialty Hospital which includes 3 Menus as HOME, FACILITIES and ENQUIRY. The ENQUIRY menu should contain a link which redirects to the Patients enquiry form in which the patient’s medical history should be recorded. The webpage should contain Hospital name with its LOGO at the top of the Page. Use appropriate HTML tags and perform mouse over, onmouseout operations using java script on LOGO. 
+
+b) Using Book details datasets (contains title, author, publisher and isbn) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script, and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.a) Make a HTML page with a heading. Make the heading kind of large, bold, italic and center it across the top of the page. There should be random scrolling image(s) using JavaScript. Write a short description about that image (max two lines). In your description, highlight something in italics. Using an unordered bulleted list, list some information which is related to the image. Create a link to google.com at the bottom of the page. Use external CSS for minimum 5 tags. 
+
+b)  Create Bike details datasets (contains model name, make, color and price) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script, and perform CRUD(Create,Read,Update,Delete) operations. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.a)Create a website for Online shopping store which contains different Menus and Each menu should list its own items.. On the right side of the page(use frames), related advertisements should be displayed and while clicking particular advertisement it should redirect the user to another page. Use appropriate HTML tags and perform internal and external CSS for any two tags. 
+
+b)  Create  Car details datasets (contains model name, color, price and make) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 6.  a)Create a website for a pizza store which contains three different menus (HOME, MENU, ORDERS) at its home page. The home page also contains a store locator search box which drops down the list of store locations. In the right side of the home page, daily offers should be displayed in scrolling fashion. The ORDERS menu should contain a link which redirects the user to the orders page in which an enquiry form should be there with necessary information to take up online orders. Use appropriate HTML tags. 
+
+b)  Create Course details datasets (contains course name, code, duration and fee) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.    a)Create a similar web page with frames 
+
+ Perform mouse over, onmouseout, and on-click operations using JavaScript on the image. 
+
+b)  Create Mobile Phone details datasets (contains model name, make, color and price)with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.  a) Create an HTML page for Linux workshop. 
+
+Create the web pages which menus like registration and details. In detail page, display the details regarding workshop as three frames in column wise and the registration form contains Name in textbox, Age in textbox, Address, sex in radio button, Language known in checkbox, college name in textbox. With reset and submit button validate by java script. 
+
+b)  Using Laptop details datasets (contains model name, make, color and price)  with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. a) Design a Webpage using HTML of an online Book store.  
+
+i)Home and registration pages are required 
+
+ii)Display Books catalog as a table in catalog page 
+
+iii)Write a JavaScript program that validates the various form elements in the registration form and must include email subscription. The form should contain all the basic controls and ‘submit’, ‘cancel’ options. 
+
+b)  Using Flight details datasets (contains model name, make, color and price) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10.a) Create a web site for departmental stores which contain images and 2 Menus such as Complaints and Contact Us and Complaints Menu should contain a link which redirects user to the concern page. The complaint page contains a form which requests the following 
+
+Complaint type from the list 
+
+Customer name 
+
+Email address 
+
+Contact number 
+
+City as list 
+
+State as list 
+
+Complaint details as text area 
+
+Use appropriate HTML tags and perform any two validation using Javascript. 
+
+b)  Create Chandrayaan 2 details datasets (contains project cost, lifetime, purpose and weight) with minimum of 5 data in it and connect to this MongoDB database from a Node.js script,  and print the results to your console. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
