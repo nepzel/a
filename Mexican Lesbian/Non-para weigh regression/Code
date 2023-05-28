@@ -1,0 +1,37 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsRegressor
+
+# Load the dataset with the appropriate encoding
+df = pd.read_csv("zomato.csv", encoding='latin1')
+
+# Extract input features and target variable for the first 50 records
+X = df[['Average Cost for two', 'Votes']].iloc[:50].values
+y = df['Aggregate rating'].iloc[:50].values
+
+# Create the regressor
+regressor = KNeighborsRegressor(n_neighbors=5, weights='distance')
+
+# Fit the regressor to the data
+regressor.fit(X, y)
+
+# Generate data for plotting the regression line
+cost_values = np.linspace(df['Average Cost for two'].min(), df['Average Cost for two'].max(), num=100)
+votes_values = np.linspace(df['Votes'].min(), df['Votes'].max(), num=100)
+X_plot = np.array(np.meshgrid(cost_values, votes_values)).T.reshape(-1, 2)
+
+# Predict on the generated data points
+y_pred = regressor.predict(X_plot)
+
+# Plot the scatter plot for the first 50 records
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', label='Data Points')
+plt.colorbar(label='Aggregate rating')
+plt.xlabel('Average Cost for two')
+plt.ylabel('Votes')
+
+# Plot the regression line
+plt.scatter(X_plot[:, 0], X_plot[:, 1], c=y_pred, cmap='viridis', alpha=0.2, label='Regression Line')
+plt.title('Scatter Plot with Regression Line (First 50 Records)')
+plt.legend()
+plt.show()
