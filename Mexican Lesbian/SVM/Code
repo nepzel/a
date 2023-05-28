@@ -1,0 +1,57 @@
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, classification_report
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+-------------------------------------------------------------------
+# Load the sample dataset
+df = pd.read_csv("bracancer.csv")
+df.head()
+------------------------------------------------------------------
+x = df.iloc[:, 2:32]  # Select the features
+y = df['diagnosis']  # Select the target variable
+------------------------------------------------------------------
+# Scale the features
+scaler = StandardScaler()
+X_scaled = pd.DataFrame(scaler.fit_transform(x))
+------------------------------------------------------------------
+# Perform PCA
+pca = PCA(n_components=0.95)
+x_pca = pca.fit_transform(X_scaled)
+x_pca = pd.DataFrame(x_pca)
+-------------------------------------------------------------
+print("Before PCA, X dataframe shape =", x.shape)
+print("After PCA, x_pca dataframe shape =", x_pca.shape)
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total explained variance ratio:", pca.explained_variance_ratio_.sum())
+-----------------------------------------------------------------------------
+# Plot the correlation heatmap
+corr_matrix = x_pca.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, cmap="YlGnBu")
+plt.title("Correlation Heatmap")
+------------------------------------------------------------------------------------
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(x_pca, y, test_size=0.25, random_state=0)
+-----------------------------------------------------------------------------------------------
+# Create and fit the Support Vector Machine classifier
+svc = SVC()
+svc.fit(X_train, y_train)
+---------------------------------------------------------------------------------------------
+# Make predictions on the test set
+y_pred = svc.predict(X_test)
+-----------------------------------------------------------------------------------------------
+# Create a confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+print("Confusion matrix:")
+print(cm)
+--------------------------------------------------------------------------------------------
+# Generate a classification report
+report = classification_report(y_test, y_pred)
+print("Classification report:")
+print(report)
+plt.show()
+-----------------------------------------------------------------------------------------
