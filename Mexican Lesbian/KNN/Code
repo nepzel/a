@@ -1,0 +1,34 @@
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn import metrics
+import matplotlib.pyplot as plt
+from sklearn import preprocessing
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+------------------------------------------------------------------
+df = pd.read_csv('Iris.csv')
+df = df.drop(['Id'], axis=1)  # Dropping unnecessary column
+------------------------------------------------------------------
+sns.pairplot(df)  # To show relation between columns
+plt.show()
+------------------------------------------------------------------
+corr = df.corr()
+sns.heatmap(corr, annot=True)  # Quantifying the relationship
+------------------------------------------------------------------
+label_encoder = preprocessing.LabelEncoder()  # For columns not with int/float type values
+df['Species'] = label_encoder.fit_transform(df['Species'])  # Label encoding 'Species' column
+------------------------------------------------------------------
+data = df.values
+X, y = data[:, :-1], data[:, -1]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=0)  # Splitting in the ratio 80:20
+------------------------------------------------------------------
+# Letting k = 3
+k = 3
+# Training model and predicting
+kclf = KNeighborsClassifier(n_neighbors=k).fit(X_train, y_train)
+------------------------------------------------------------------
+y_pred = kclf.predict(X_test)  # Making predictions
+------------------------------------------------------------------ś
+print("Train set Accuracy: ", metrics.accuracy_score(y_train, kclf.predict(X_train)))
+print("Test set Accuracy: ", metrics.accuracy_score(y_test, y_pred))
