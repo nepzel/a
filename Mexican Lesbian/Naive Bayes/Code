@@ -1,0 +1,45 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+--------------------------------------------------------------
+# Load the weather dataset from CSV
+df = pd.read_csv("weather.csv")
+--------------------------------------------------------------
+# Split the dataset into features (X) and target variable (y)
+X = df.iloc[:, 1:-1]  # Exclude the 'date' and 'weather' columns
+y = df.iloc[:, -1]
+--------------------------------------------------------------
+# Convert categorical variables to numerical using one-hot encoding
+X = pd.get_dummies(X)
+--------------------------------------------------------------
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+--------------------------------------------------------------
+# Create and train the Naïve Bayes classifier
+classifier = GaussianNB()
+classifier.fit(X_train, y_train)
+--------------------------------------------------------------
+# Make predictions on the test set
+y_pred = classifier.predict(X_test)
+--------------------------------------------------------------
+# Compute the accuracy of the classifier
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+--------------------------------------------------------------
+# Check conditions based on weather features and print if you can play or not
+precipitation = X_test.iloc[0]['precipitation']
+temp_max = X_test.iloc[0]['temp_max']
+temp_min = X_test.iloc[0]['temp_min']
+wind = X_test.iloc[0]['wind']
+--------------------------------------------------------------
+if precipitation > 0.5:
+    print("It's raining. You cannot play.")
+elif temp_max > 30:
+    print("It's too hot. You cannot play.")
+elif temp_min < 10:
+    print("It's too cold. You cannot play.")
+elif wind > 20:
+    print("It's too windy. You cannot play.")
+else:
+    print("You can play!")
