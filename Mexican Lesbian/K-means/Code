@@ -1,0 +1,23 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import MinMaxScaler
+
+iris = pd.read_csv("Iris.csv")
+x = iris.iloc[:, [0, 1, 2, 3]].values
+iris.info()
+iris[0:10]
+
+iris_outcome = pd.crosstab(index=iris["Species"], columns="count")
+iris_outcome
+
+iris_setosa = iris.loc[iris["Species"] == "Iris-setosa"]
+iris_virginica = iris.loc[iris["Species"] == "Iris-virginica"]
+iris_versicolor = iris.loc[iris["Species"] == "Iris-versicolor"]
+
+sns.FacetGrid(iris, hue="Species", height=3).map(sns.distplot, "PetalLengthCm").add_legend()
+sns.FacetGrid(iris, hue="Species", height=3).map(sns.distplot, "PetalWidthCm").add_legend()
+sns.FacetGrid(iris, hue="Species", height=3).map(sns.distplot, "SepalLengthCm").add_legend()
