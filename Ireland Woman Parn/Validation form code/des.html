@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <script>
+    function validateForm() {
+      var name = document.forms["myForm"]["name"].value;
+      var email = document.forms["myForm"]["email"].value;
+
+      if (name == "") {
+        alert("Name is required");
+        return false;
+      }
+
+      if (email == "") {
+        alert("Email is required");
+        return false;
+      }
+
+      if (!email.includes("@")) {
+        alert("Invalid email address. '@' is missing.");
+        return false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Form Validation</h2>
+  <form name="myForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
